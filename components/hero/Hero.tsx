@@ -16,11 +16,11 @@ export function Hero() {
 
     const handleMouseMove = (e: MouseEvent) => {
       const { left, top, width, height } = hero.getBoundingClientRect();
-      const x = ((e.clientX - left) / width - 0.5) * 20;
-      const y = ((e.clientY - top) / height - 0.5) * 10;
+      const x = ((e.clientX - left) / width - 0.5) * 30;
+      const y = ((e.clientY - top) / height - 0.5) * 15;
       const visual = hero.querySelector<HTMLElement>(".hero-visual");
       if (visual) {
-        visual.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px)`;
+        visual.style.transform = `translate(${x * 0.8}px, ${y * 0.8}px)`;
       }
     };
 
@@ -50,7 +50,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 pt-24 pb-16 w-full">
-        <div className="grid xl:grid-cols-2 gap-0 items-center pt-4">
+        <div className="grid lg:grid-cols-2 gap-0 items-center pt-4">
 
           {/* Left — Text */}
           <div className="flex flex-col gap-y-3 items-start justify-center pt-4 xl:pt-0 min-w-0 overflow-visible">
@@ -80,7 +80,7 @@ export function Hero() {
                     delay: 0.2 + i * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  style={{ fontSize: "clamp(4rem, 8.5vw, 8.5rem)" }}
+                  style={{ fontSize: "clamp(3rem, 6.75vw, 6.75rem)" }}
                 >
                   {i === 0 ? (
                     <span className="text-white">{line}</span>
@@ -164,7 +164,7 @@ export function Hero() {
 
           {/* Right — Visual (hidden below xl) */}
           <motion.div
-            className="hero-visual hidden xl:flex relative items-center justify-center pr-4 xl:pr-8 transition-transform duration-700 ease-out"
+            className="hero-visual hidden lg:flex relative items-center justify-center pr-4 xl:pr-8 transition-transform duration-700 ease-out"
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -188,7 +188,7 @@ export function Hero() {
             </div>
 
             {/* Logo */}
-            <div className="relative w-80 h-80 lg:w-[32rem] lg:h-[32rem] mt-[-2rem] lg:mt-[-4rem]">
+            <div className="relative w-[40vw]! max-w-[36rem] lg:w-[32rem] lg:h-[32rem] mt-[-2rem] lg:mt-[-4rem]">
               <div
                 className="absolute inset-0"
                 style={{
