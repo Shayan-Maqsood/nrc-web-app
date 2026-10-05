@@ -12,15 +12,15 @@ export const siteConfig: SiteConfig = {
   contact: [
     {
       label: "General Inquiries",
-      email: "contact@nrc.nust.edu.pk",
+      email: "contact@nustrobotics.club",
     },
     {
       label: "HR & Recruitment",
-      email: "hr@nrc.nust.edu.pk",
+      email: "hr@nustrobotics.club",
     },
     {
       label: "Events & Sponsorship",
-      email: "events@nrc.nust.edu.pk",
+      email: "events@nustrobotics.club",
     },
   ],
   social: [
