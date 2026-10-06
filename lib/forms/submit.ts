@@ -19,15 +19,16 @@ export async function submitForm(
   data: SubmitFormData
 ): Promise<FormResult> {
 
-  // Executive form goes to Google Sheets
+  // Executive form goes through server-side proxy (avoids CORS)
   if (formId === "join-executive") {
     try {
-      await fetch(GOOGLE_SHEETS_EXEC_URL, {
+      const res = await fetch("/api/submit-exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      return { success: true, message: "Application received." };
+      if (res.ok) return { success: true, message: "Application received." };
+      return { success: false, message: "Submission failed. Please try again." };
     } catch {
       return { success: false, message: "Submission failed. Please try again." };
     }
