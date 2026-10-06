@@ -5,6 +5,9 @@ export interface FormResult {
   message: string;
 }
 
+const GOOGLE_SHEETS_EXEC_URL =
+  "https://script.google.com/macros/s/AKfycbydKy98tTVPgOlew36ycpr5_XQM5UqwSXTVfr8bQQwxjLttEpdSk4XqRYt23diYDqT3Jg/exec";
+
 const ENDPOINTS: Record<string, string | undefined> = {
   "join-executive": process.env.NEXT_PUBLIC_FORMSPREE_EXEC,
   "join-volunteer": process.env.NEXT_PUBLIC_FORMSPREE_VOLUNTEER,
@@ -15,8 +18,23 @@ export async function submitForm(
   formId: string,
   data: SubmitFormData
 ): Promise<FormResult> {
-  const endpointId = ENDPOINTS[formId];
 
+  // Executive form goes to Google Sheets
+  if (formId === "join-executive") {
+    try {
+      await fetch(GOOGLE_SHEETS_EXEC_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      return { success: true, message: "Application received." };
+    } catch {
+      return { success: false, message: "Submission failed. Please try again." };
+    }
+  }
+
+  // All other forms use Formspree
+  const endpointId = ENDPOINTS[formId];
   if (!endpointId) {
     console.log("[DEV] Form submission (no endpoint configured):", formId, data);
     return { success: true, message: "Form submitted (dev mode)." };
