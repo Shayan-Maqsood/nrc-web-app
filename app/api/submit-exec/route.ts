@@ -6,6 +6,7 @@ const GOOGLE_SHEETS_EXEC_URL =
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log("[submit-exec] received:", body);
 
     const gsRes = await fetch(GOOGLE_SHEETS_EXEC_URL, {
       method: "POST",
