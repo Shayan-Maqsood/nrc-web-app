@@ -62,51 +62,7 @@ export const events: Event[] = [
       },
     ],
   },
-  {
-    id: "nerc",
-    slug: "nerc",
-    name: "NERC",
-    shortName: "NERC",
-    tagline: "National Engineering Robotics Contest",
-    description:
-      "NERC is Pakistan's premier national-level robotics competition. NRC consistently fields strong teams across multiple categories including line followers, maze solvers, and autonomous systems.",
-    coverImage: "/images/events/nerc-cover.jpg",
-    category: "competition",
-    editions: [
-      {
-        year: 2026,
-        description: "Replace with official 2026 NERC edition description.",
-        stats: [
-          { label: "Categories Entered", value: "4", unit: "categories" },
-          { label: "Teams Fielded", value: "6", unit: "teams" },
-          { label: "Participants", value: "18", unit: "members" },
-          { label: "Placement", value: "Replace", unit: "" },
-        ],
-        results: [
-          {
-            rank: 1,
-            team: "NRC — Replace Category",
-            achievement: "Replace with actual result",
-          },
-        ],
-        media: [],
-        coverImage: "/images/events/nerc-2026-cover.jpg",
-      },
-      {
-        year: 2025,
-        description: "Replace with official 2025 NERC edition description.",
-        stats: [
-          { label: "Categories Entered", value: "3", unit: "categories" },
-          { label: "Teams Fielded", value: "5", unit: "teams" },
-          { label: "Participants", value: "15", unit: "members" },
-          { label: "Placement", value: "Replace", unit: "" },
-        ],
-        results: [],
-        media: [],
-        coverImage: "/images/events/nerc-2025-cover.jpg",
-      },
-    ],
-  },
+
   {
     id: "workshops",
     slug: "workshops",
