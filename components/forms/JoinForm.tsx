@@ -44,6 +44,7 @@ export function JoinForm({ type, roleId, roleTitle }: JoinFormProps) {
     motivation: "",
     experience: "",
     portfolio: "",
+    phone: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -127,6 +128,22 @@ export function JoinForm({ type, roleId, roleTitle }: JoinFormProps) {
             autoComplete="email"
           />
         </div>
+      </div>
+
+      {/* Phone Number */}
+      <div>
+        {label("Phone Number", true)}
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          value={form.phone}
+          onChange={handleChange}
+          className={inputClass}
+          placeholder="+92 300 0000000"
+          autoComplete="tel"
+        />
       </div>
 
       {/* Student ID, Batch, & Department Dropdown */}
